@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  dbpostgres:
+    image: postgres
+    volumes:
+      - /Users/martinghiotti/Projects/cookit/database/up.sql:/docker-entrypoint-initdb.d/1.sql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
